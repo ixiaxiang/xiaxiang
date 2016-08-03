@@ -1,0 +1,42 @@
+[
+    {
+        "merged": "D:\\work\\project\\xiaxiang\\thunk\\client\\android\\xiaxiang\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\contacts_unselected.png",
+        "source": "D:\\work\\project\\xiaxiang\\thunk\\client\\android\\xiaxiang\\app\\src\\main\\res\\drawable-xxhdpi\\contacts_unselected.png"
+    },
+    {
+        "merged": "D:\\work\\project\\xiaxiang\\thunk\\client\\android\\xiaxiang\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\message_unselected.png",
+        "source": "D:\\work\\project\\xiaxiang\\thunk\\client\\android\\xiaxiang\\app\\src\\main\\res\\drawable-xxhdpi\\message_unselected.png"
+    },
+    {
+        "merged": "D:\\work\\project\\xiaxiang\\thunk\\client\\android\\xiaxiang\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\setting_selected.png",
+        "source": "D:\\work\\project\\xiaxiang\\thunk\\client\\android\\xiaxiang\\app\\src\\main\\res\\drawable-xxhdpi\\setting_selected.png"
+    },
+    {
+        "merged": "D:\\work\\project\\xiaxiang\\thunk\\client\\android\\xiaxiang\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\contacts_selected.png",
+        "source": "D:\\work\\project\\xiaxiang\\thunk\\client\\android\\xiaxiang\\app\\src\\main\\res\\drawable-xxhdpi\\contacts_selected.png"
+    },
+    {
+        "merged": "D:\\work\\project\\xiaxiang\\thunk\\client\\android\\xiaxiang\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\ic_launcher.png",
+        "source": "D:\\work\\project\\xiaxiang\\thunk\\client\\android\\xiaxiang\\app\\src\\main\\res\\drawable-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\work\\project\\xiaxiang\\thunk\\client\\android\\xiaxiang\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\tab_bg.9.png",
+        "source": "D:\\work\\project\\xiaxiang\\thunk\\client\\android\\xiaxiang\\app\\src\\main\\res\\drawable-xxhdpi\\tab_bg.9.png"
+    },
+    {
+        "merged": "D:\\work\\project\\xiaxiang\\thunk\\client\\android\\xiaxiang\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\news_unselected.png",
+        "source": "D:\\work\\project\\xiaxiang\\thunk\\client\\android\\xiaxiang\\app\\src\\main\\res\\drawable-xxhdpi\\news_unselected.png"
+    },
+    {
+        "merged": "D:\\work\\project\\xiaxiang\\thunk\\client\\android\\xiaxiang\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\news_selected.png",
+        "source": "D:\\work\\project\\xiaxiang\\thunk\\client\\android\\xiaxiang\\app\\src\\main\\res\\drawable-xxhdpi\\news_selected.png"
+    },
+    {
+        "merged": "D:\\work\\project\\xiaxiang\\thunk\\client\\android\\xiaxiang\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\message_selected.png",
+        "source": "D:\\work\\project\\xiaxiang\\thunk\\client\\android\\xiaxiang\\app\\src\\main\\res\\drawable-xxhdpi\\message_selected.png"
+    },
+    {
+        "merged": "D:\\work\\project\\xiaxiang\\thunk\\client\\android\\xiaxiang\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\setting_unselected.png",
+        "source": "D:\\work\\project\\xiaxiang\\thunk\\client\\android\\xiaxiang\\app\\src\\main\\res\\drawable-xxhdpi\\setting_unselected.png"
+    }
+]
