@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:background="@mipmap/background_login" >
+
+    <EditText
+        android:id="@+id/login_username_edittext"
+        android:layout_width="@dimen/login_editText_width"
+        android:layout_height="@dimen/login_editText_height"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="200dp"
+        android:textColor="@android:color/white" />
+
+    <EditText
+        android:id="@+id/login_password_edittext"
+        android:layout_width="@dimen/login_editText_width"
+        android:layout_height="@dimen/login_editText_height"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/login_username_edittext"
+        android:layout_marginTop="10dp"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="@dimen/login_editText_width"
+        android:layout_height="@dimen/login_editText_height"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/login_password_edittext"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/selector_login_button"
+        android:text="@string/login_text"
+        android:textColor="@android:color/white" />
+
+</RelativeLayout>
