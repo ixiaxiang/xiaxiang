@@ -1,13 +1,14 @@
 package org.xiaxiang.xiaxiang.activity;
 
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import org.xiaxiang.xiaxiang.R;
+import org.xiaxiang.xiaxiang.base.BaseActivity;
 import org.xiaxiang.xiaxiang.utils.GlobalStrings;
 
 import java.util.ArrayList;
@@ -15,16 +16,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private DrawerLayout drawerLayout;
     private ListView listView;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initUI();
+    }
+
+    private void initUI() {
         initLeftMenu();
+        initToolbar();
     }
 
     private void initLeftMenu() {
@@ -35,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private void initDrawerLayout() {
         drawerLayout = (DrawerLayout)findViewById(R.id.drawer_menu_layout);
         drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
+
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
                 super.onDrawerSlide(drawerView, slideOffset);
@@ -71,5 +79,11 @@ public class MainActivity extends AppCompatActivity {
                 new String[] {"menu_icon", "menu_text"},
                 new int[] {R.id.menu_icon, R.id.menu_text});
         listView.setAdapter(leftMenuAdapter);
+    }
+
+    private void initToolbar() {
+        toolbar = (Toolbar)findViewById(R.id.main_toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setTitle(R.string.app_name);
     }
 }

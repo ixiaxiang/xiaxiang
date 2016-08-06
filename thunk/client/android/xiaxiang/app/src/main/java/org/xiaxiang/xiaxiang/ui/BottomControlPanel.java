@@ -3,12 +3,11 @@ package org.xiaxiang.xiaxiang.ui;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.xiaxiang.xiaxiang.base.Constant;
+import org.xiaxiang.xiaxiang.utils.Constant;
 
 import android.content.Context;
 import android.graphics.Color;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 
@@ -84,23 +83,23 @@ public class BottomControlPanel extends RelativeLayout implements View.OnClickLi
 		initBottomPanel();
 		int index = -1;
 		switch(v.getId()){
-		case R.id.btn_message:
-			index = Constant.BTN_FLAG_MESSAGE;
-			mMsgBtn.setChecked(Constant.BTN_FLAG_MESSAGE);
-			break;
-		case R.id.btn_contacts:
-			index = Constant.BTN_FLAG_CONTACTS;
-			mContactsBtn.setChecked(Constant.BTN_FLAG_CONTACTS);
-			break;
-		case R.id.btn_news:
-			index = Constant.BTN_FLAG_NEWS;
-			mNewsBtn.setChecked(Constant.BTN_FLAG_NEWS);
-			break;
-		case R.id.btn_setting:
-			index = Constant.BTN_FLAG_SETTING;
-			mSettingBtn.setChecked(Constant.BTN_FLAG_SETTING);
-			break;
-		default:break;
+			case R.id.btn_message:
+				index = Constant.BTN_FLAG_MESSAGE;
+				mMsgBtn.setChecked(Constant.BTN_FLAG_MESSAGE);
+				break;
+			case R.id.btn_contacts:
+				index = Constant.BTN_FLAG_CONTACTS;
+				mContactsBtn.setChecked(Constant.BTN_FLAG_CONTACTS);
+				break;
+			case R.id.btn_news:
+				index = Constant.BTN_FLAG_NEWS;
+				mNewsBtn.setChecked(Constant.BTN_FLAG_NEWS);
+				break;
+			case R.id.btn_setting:
+				index = Constant.BTN_FLAG_SETTING;
+				mSettingBtn.setChecked(Constant.BTN_FLAG_SETTING);
+				break;
+			default:break;
 		}
 		if(mBottomCallback != null){
 			mBottomCallback.onBottomPanelClick(index);
@@ -130,18 +129,14 @@ public class BottomControlPanel extends RelativeLayout implements View.OnClickLi
 		}
 		int paddingLeft = getPaddingLeft();
 		int paddingRight = getPaddingRight();
-		Log.i("yanguoqi", "paddingLeft = " + paddingLeft + " paddingRight = " + paddingRight);
 		int width = right - left;
 		int height = bottom - top;
-		Log.i("yanguoqi", "width = " + width + " height = " + height);
 		int allViewWidth = 0;
 		for(int i = 0; i< n; i++){
 			View v = getChildAt(i);
-			Log.i("yanguoqi", "v.getWidth() = " + v.getWidth());
 			allViewWidth += v.getWidth();
 		}
 		int blankWidth = (width - allViewWidth - paddingLeft - paddingRight) / (n - 1);
-		Log.i("yanguoqi", "blankV = " + blankWidth );
 
 		LayoutParams params1 = (LayoutParams) viewList.get(1).getLayoutParams();
 		params1.leftMargin = blankWidth;

@@ -1,8 +1,5 @@
 package org.xiaxiang.xiaxiang.fragment;
 
-import org.xiaxiang.xiaxiang.activity.MainActivity;
-import org.xiaxiang.xiaxiang.base.Constant;
-
 import org.xiaxiang.xiaxiang.R;
 
 import android.os.Bundle;

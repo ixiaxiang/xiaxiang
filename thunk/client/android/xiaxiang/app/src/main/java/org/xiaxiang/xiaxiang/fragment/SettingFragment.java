@@ -1,11 +1,7 @@
 package org.xiaxiang.xiaxiang.fragment;
 
-import org.xiaxiang.xiaxiang.activity.MainActivity;
-import org.xiaxiang.xiaxiang.base.Constant;
-
 import org.xiaxiang.xiaxiang.R;
 
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;

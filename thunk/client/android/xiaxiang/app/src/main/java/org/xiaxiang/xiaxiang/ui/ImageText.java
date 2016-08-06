@@ -1,6 +1,6 @@
 package org.xiaxiang.xiaxiang.ui;
 
-import org.xiaxiang.xiaxiang.base.Constant;
+import org.xiaxiang.xiaxiang.utils.Constant;
 
 import android.content.Context;
 import android.graphics.Color;

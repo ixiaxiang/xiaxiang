@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.xiaxiang.xiaxiang.activity.MainActivity;
 import org.xiaxiang.xiaxiang.bean.MessageBean;
-import org.xiaxiang.xiaxiang.base.Constant;
 import org.xiaxiang.xiaxiang.adapter.MessageAdapter;
 
 import android.app.Activity;

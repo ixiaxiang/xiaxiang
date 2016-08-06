@@ -1,4 +1,4 @@
-package org.xiaxiang.xiaxiang.base;
+package org.xiaxiang.xiaxiang.utils;
 
 public class Constant {
 	//Btn的标识

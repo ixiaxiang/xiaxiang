@@ -1,8 +1,7 @@
 package org.xiaxiang.xiaxiang.fragment;
 
-import org.xiaxiang.xiaxiang.base.Constant;
+import org.xiaxiang.xiaxiang.utils.Constant;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -34,7 +33,7 @@ public class BaseFragment extends Fragment {
 		Log.i(TAG, "onCreateView...");
 //		View v = inflater.inflate(R.layout.messages_layout, container, false);
 		
-		return 	super.onCreateView(inflater, container, savedInstanceState);
+		return super.onCreateView(inflater, container, savedInstanceState);
 	}
 
 	@Override
