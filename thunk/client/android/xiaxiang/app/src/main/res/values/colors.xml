@@ -6,9 +6,13 @@
 	<color name="colorBackground">#ffffff</color>
 
 	<color name="divider_color">#FFCCCCCC</color>
+
 	<color name="blue">#3A5FCD</color>
 	<color name="black">#000000</color>
+
 	<color name="line">#DDDDDD</color>
 	<color name="button_green_pressed">#2ad670</color>
 	<color name="button_green_normal">#6adab4</color>
+
+	<color name="bottom_panel_green">#36bc7d</color>
 </resources>

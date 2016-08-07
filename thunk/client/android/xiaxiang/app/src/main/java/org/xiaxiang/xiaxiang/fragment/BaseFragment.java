@@ -88,7 +88,7 @@ public class BaseFragment extends Fragment {
 	public static BaseFragment newInstance(Context context,String tag){
 		BaseFragment baseFragment =  null;
 		if(TextUtils.equals(tag, Constant.FRAGMENT_FLAG_CONTACTS)){
-			baseFragment = new ContactsFragment();
+			//baseFragment = new ContactsFragment();
 		}else if(TextUtils.equals(tag, Constant.FRAGMENT_FLAG_MESSAGE)){
 			baseFragment = new MessageFragment();
 		}else if(TextUtils.equals(tag, Constant.FRAGMENT_FLAG_NEWS)){

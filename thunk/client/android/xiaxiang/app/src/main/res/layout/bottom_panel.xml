@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp" >
+
+    <Button
+        android:id="@+id/button_chat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:drawableTop="@mipmap/message_unselected"
+        android:drawablePadding="5dp"
+        android:text="消息"
+        android:textColor="@color/bottom_panel_green"/>
+    <Button
+        android:id="@+id/button_contacts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:drawableTop="@mipmap/contacts_unselected"
+        android:drawablePadding="5dp"
+        android:text="校友录"
+        android:textColor="@color/bottom_panel_green" />
+    <Button
+        android:id="@+id/button_friends"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:drawableTop="@mipmap/news_unselected"
+        android:drawablePadding="5dp"
+        android:text="杂货铺"
+        android:textColor="@color/bottom_panel_green" />
+    <Button
+        android:id="@+id/button_play"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:drawableTop="@mipmap/setting_unselected"
+        android:drawablePadding="5dp"
+        android:text="活动"
+        android:textColor="@color/bottom_panel_green" />
+
+</LinearLayout>

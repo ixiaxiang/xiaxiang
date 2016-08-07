@@ -1,14 +1,21 @@
 package org.xiaxiang.xiaxiang.activity;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import org.xiaxiang.xiaxiang.R;
 import org.xiaxiang.xiaxiang.base.BaseActivity;
+import org.xiaxiang.xiaxiang.fragment.ChatFragment;
+import org.xiaxiang.xiaxiang.fragment.ContactsFragment;
+import org.xiaxiang.xiaxiang.fragment.FriendFragment;
+import org.xiaxiang.xiaxiang.fragment.PlayFragment;
 import org.xiaxiang.xiaxiang.utils.GlobalStrings;
 
 import java.util.ArrayList;
@@ -17,6 +24,19 @@ import java.util.List;
 import java.util.Map;
 
 public class MainActivity extends BaseActivity {
+
+    private int tabIndex = 0;
+    private ChatFragment chatFragment;
+    private ContactsFragment contactsFragment;
+    private FriendFragment friendFragment;
+    private PlayFragment playFragment;
+    private FragmentManager fragmentManager;
+    private FragmentTransaction fragmentTransaction;
+
+    private Button chatButton;
+    private Button contactsButton;
+    private Button friendButton;
+    private Button playButton;
 
     private DrawerLayout drawerLayout;
     private ListView listView;
@@ -27,13 +47,76 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initUI();
+
+        fragmentManager = getFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_content, chatFragment);
+        fragmentTransaction.commit();
+    }
+
+    class ButtonClickListener implements View.OnClickListener {
+        int index;
+        public ButtonClickListener(int index) {
+            this.index = index;
+        }
+
+        @Override
+        public void onClick(View view) {
+            fragmentTransaction = fragmentManager.beginTransaction();
+            switch ( view.getId() ) {
+                case R.id.button_chat:
+                    fragmentTransaction.replace(R.id.fragment_content, chatFragment);
+                    break;
+                case R.id.button_contacts:
+                    fragmentTransaction.replace(R.id.fragment_content, contactsFragment);
+                    break;
+                case R.id.button_friends:
+                    fragmentTransaction.replace(R.id.fragment_content, friendFragment);
+                    break;
+                case R.id.button_play:
+                    fragmentTransaction.replace(R.id.fragment_content, playFragment);
+                    break;
+                default:
+                    break;
+            }
+
+            if ( tabIndex != index ) {
+                fragmentTransaction.commit();
+            }
+
+            tabIndex = index;
+        }
     }
 
     private void initUI() {
+        initFragment();
+        initBottomButton();
         initLeftMenu();
         initToolbar();
     }
 
+    // 初始化fragment
+    private void initFragment() {
+        chatFragment = new ChatFragment();
+        contactsFragment = new ContactsFragment();
+        friendFragment = new FriendFragment();
+        playFragment = new PlayFragment();
+    }
+
+    private void initBottomButton() {
+        chatButton = (Button)findViewById(R.id.button_chat);
+        contactsButton = (Button)findViewById(R.id.button_contacts);
+        friendButton = (Button)findViewById(R.id.button_friends);
+        playButton = (Button)findViewById(R.id.button_play);
+
+        chatButton.setOnClickListener(new ButtonClickListener(0));
+        contactsButton.setOnClickListener(new ButtonClickListener(1));
+        friendButton.setOnClickListener(new ButtonClickListener(2));
+        playButton.setOnClickListener(new ButtonClickListener(3));
+    }
+
+
+    // 初始化菜单栏
     private void initLeftMenu() {
         initDrawerLayout();
         initLeftMenuList();
@@ -81,9 +164,11 @@ public class MainActivity extends BaseActivity {
         listView.setAdapter(leftMenuAdapter);
     }
 
+    // 初始化工具栏
     private void initToolbar() {
         toolbar = (Toolbar)findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle(R.string.app_name);
     }
+
 }
