@@ -12,9 +12,9 @@ import android.widget.SimpleAdapter;
 
 import org.xiaxiang.xiaxiang.R;
 import org.xiaxiang.xiaxiang.base.BaseActivity;
-import org.xiaxiang.xiaxiang.fragment.ChatFragment;
 import org.xiaxiang.xiaxiang.fragment.ContactsFragment;
 import org.xiaxiang.xiaxiang.fragment.FriendFragment;
+import org.xiaxiang.xiaxiang.fragment.MessageFragment;
 import org.xiaxiang.xiaxiang.fragment.PlayFragment;
 import org.xiaxiang.xiaxiang.utils.GlobalStrings;
 
@@ -26,7 +26,7 @@ import java.util.Map;
 public class MainActivity extends BaseActivity {
 
     private int tabIndex = 0;
-    private ChatFragment chatFragment;
+    private MessageFragment messageFragment;
     private ContactsFragment contactsFragment;
     private FriendFragment friendFragment;
     private PlayFragment playFragment;
@@ -50,7 +50,7 @@ public class MainActivity extends BaseActivity {
 
         fragmentManager = getFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_content, chatFragment);
+        fragmentTransaction.replace(R.id.fragment_content, messageFragment);
         fragmentTransaction.commit();
     }
 
@@ -65,7 +65,7 @@ public class MainActivity extends BaseActivity {
             fragmentTransaction = fragmentManager.beginTransaction();
             switch ( view.getId() ) {
                 case R.id.button_chat:
-                    fragmentTransaction.replace(R.id.fragment_content, chatFragment);
+                    fragmentTransaction.replace(R.id.fragment_content, messageFragment);
                     break;
                 case R.id.button_contacts:
                     fragmentTransaction.replace(R.id.fragment_content, contactsFragment);
@@ -97,7 +97,7 @@ public class MainActivity extends BaseActivity {
 
     // 初始化fragment
     private void initFragment() {
-        chatFragment = new ChatFragment();
+        messageFragment = new MessageFragment();
         contactsFragment = new ContactsFragment();
         friendFragment = new FriendFragment();
         playFragment = new PlayFragment();
