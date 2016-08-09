@@ -7,4 +7,11 @@
     <dimen name="login_editText_width">250dp</dimen>
     <dimen name="login_editText_height">45dp</dimen>
 
+    <!-- Message List's margins -->
+    <dimen name="message_list_height">80dp</dimen>
+    <dimen name="message_head_size">60dp</dimen>
+    <dimen name="message_list_spacing">15dp</dimen>
+    <dimen name="message_nick_size">20dp</dimen>
+    <dimen name="message_content_size">14dp</dimen>
+
 </resources>

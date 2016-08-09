@@ -170,5 +170,4 @@ public class MainActivity extends BaseActivity {
         setSupportActionBar(toolbar);
         toolbar.setTitle(R.string.app_name);
     }
-
 }

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/message_list_height"
+    android:paddingLeft="@dimen/message_list_spacing"
+    android:paddingRight="@dimen/message_list_spacing">
+
+    <org.xiaxiang.xiaxiang.ui.CircleImageView
+        android:id="@+id/message_head"
+        android:layout_width="@dimen/message_head_size"
+        android:layout_height="@dimen/message_head_size"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+
+        android:src="@mipmap/demohead" />
+
+    <TextView
+        android:id="@+id/message_nickname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/message_head"
+        android:layout_marginLeft="@dimen/message_list_spacing"
+        android:layout_alignTop="@id/message_head"
+        android:layout_marginTop="10dp"
+        android:paddingRight="50dp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/message_nick_size"
+
+        android:text="漆黑の中二病" />
+
+    <TextView
+        android:id="@+id/message_last_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/message_nickname"
+        android:layout_below="@id/message_nickname"
+        android:layout_marginTop="5dp"
+        android:paddingRight="50dp"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:textColor="@color/black"
+        android:textSize="@dimen/message_content_size"
+
+        android:text="测试一下，看一下显示的效果怎么样，长度超出时会怎么样，呵呵呵..."/>
+
+    <TextView
+        android:id="@+id/message_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignBaseline="@id/message_nickname"
+        android:textColor="@color/black"
+        android:textSize="@dimen/message_content_size"
+
+        android:text="23:05"/>
+
+    <TextView
+        android:id="@+id/message_unread_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/message_time"
+        android:layout_marginTop="5dp"
+        android:background="@mipmap/message_tip"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/message_content_size"
+
+        android:text="12" />
+</RelativeLayout>
