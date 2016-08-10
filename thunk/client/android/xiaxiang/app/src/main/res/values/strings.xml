@@ -6,5 +6,10 @@
     <string name="hello_world">Hello world!</string>
 
     <string name="login_text">登   录</string>
+    <string name="chat_send">发送</string>
+    <string name="aio_ime_action_label">完成</string>
+    <string name="xlistview_footer_hint_ready">松开载入更多</string>
+    <string name="xlistview_footer_hint_normal">查看更多</string>
+    <string name="xlistview_header_hint_loading">正在刷新...</string>
 
 </resources>

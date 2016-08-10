@@ -15,4 +15,6 @@
 	<color name="button_green_normal">#6adab4</color>
 
 	<color name="bottom_panel_green">#36bc7d</color>
+	<color name="color_hei_8">#00000000</color>
+	<drawable name="trans">@color/color_hei_8</drawable>
 </resources>
