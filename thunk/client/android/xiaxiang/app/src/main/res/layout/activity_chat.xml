@@ -34,7 +34,7 @@
         <RelativeLayout
             android:id="@+id/inputBar"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dip"
             android:layout_gravity="bottom"
             android:background="@drawable/skin_aio_input_bar_bg" >
 
@@ -49,7 +49,6 @@
                 android:id="@+id/face_switch_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
-
                 android:layout_marginRight="2.0dip"
                 android:background="@drawable/trans"
                 android:src="@drawable/qzone_edit_face_drawable" />
