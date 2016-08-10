@@ -4,8 +4,10 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
-    <dimen name="login_editText_width">250dp</dimen>
-    <dimen name="login_editText_height">45dp</dimen>
+    <dimen name="login_editText_width">220dip</dimen>
+    <dimen name="login_editText_height">45dip</dimen>
+    <dimen name="login_group_width">300dip</dimen>
+    <dimen name="login_group_height">60dip</dimen>
 
     <!-- Message List's margins -->
     <dimen name="message_list_height">80dp</dimen>

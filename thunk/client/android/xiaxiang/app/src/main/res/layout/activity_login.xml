@@ -5,37 +5,129 @@
     android:layout_height="match_parent"
     android:paddingLeft="20dp"
     android:paddingRight="20dp"
-    android:background="@mipmap/background_login" >
+    android:background="@mipmap/login_background" >
 
-    <EditText
-        android:id="@+id/login_username_edittext"
-        android:layout_width="@dimen/login_editText_width"
-        android:layout_height="@dimen/login_editText_height"
+    <RelativeLayout
+        android:id="@+id/username_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:layout_marginTop="60dip"
         android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="200dp"
-        android:textColor="@android:color/white" />
+         >
+        <ImageView android:id="@+id/usename_picture"
+            android:layout_width="40dip"
+            android:layout_height="@dimen/login_editText_height"
+            android:layout_marginLeft="20dp"
+            android:scaleType="centerInside"
+            android:layout_gravity="center_horizontal"
+            android:src="@mipmap/username"/>
+        <EditText
+            android:id="@+id/login_username_edittext"
+            android:layout_width="@dimen/login_editText_width"
+            android:layout_height="@dimen/login_editText_height"
+            android:layout_centerHorizontal="true"
+            android:layout_right="@id/usename_picture"
+            android:layout_alignParentTop="true"
+            android:background="@null"
+            android:hint="请输入用户名"
+            android:textColor="@android:color/white" />
+        <ImageView android:id="@+id/del"
+            android:layout_width="40dip"
+            android:layout_height="@dimen/login_editText_height"
+            android:layout_toRightOf="@id/login_username_edittext"
+            android:scaleType="centerInside"
+            android:src="@mipmap/del"/>
+    </RelativeLayout>
 
-    <EditText
-        android:id="@+id/login_password_edittext"
-        android:layout_width="@dimen/login_editText_width"
-        android:layout_height="@dimen/login_editText_height"
+    <ImageView android:id="@+id/interline1"
+        android:layout_width="@dimen/login_group_width"
+        android:layout_height="5dip"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@id/username_layout"
+        android:layout_gravity="center_horizontal"
+        android:src="@mipmap/line"/>
+
+    <RelativeLayout
+        android:id="@+id/password_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:layout_below="@id/interline1"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/login_username_edittext"
-        android:layout_marginTop="10dp"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:textColor="@android:color/white" />
+        >
+        <ImageView android:id="@+id/password_picture"
+            android:layout_width="40dip"
+            android:layout_height="@dimen/login_editText_height"
+            android:layout_marginLeft="20dp"
+            android:scaleType="centerInside"
+            android:layout_gravity="center_horizontal"
+            android:src="@mipmap/password"/>
+        <EditText
+            android:id="@+id/login_password_edittext"
+            android:layout_width="@dimen/login_editText_width"
+            android:layout_height="@dimen/login_editText_height"
+            android:layout_centerHorizontal="true"
+            android:layout_right="@id/password_picture"
+            android:layout_marginTop="10dp"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:hint="请输入密码"
+            android:background="@null"
+            android:textColor="@android:color/white" />
+
+    </RelativeLayout>
+
+    <ImageView android:id="@+id/interline2"
+        android:layout_width="@dimen/login_group_width"
+        android:layout_height="5dip"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@id/password_layout"
+        android:layout_gravity="center_horizontal"
+        android:src="@mipmap/line"/>
 
     <Button
         android:id="@+id/login_button"
-        android:layout_width="@dimen/login_editText_width"
-        android:layout_height="@dimen/login_editText_height"
+        android:layout_width="@dimen/login_group_width"
+        android:layout_height="@dimen/login_group_height"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/login_password_edittext"
+        android:layout_below="@id/interline2"
         android:layout_marginTop="10dp"
         android:background="@drawable/selector_login_button"
         android:text="@string/login_text"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:textSize="18dip"/>
+
+    <RelativeLayout
+        android:id="@+id/quick_login_line"
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:layout_below="@id/login_button"
+        android:layout_marginTop="70dip"
+        android:layout_centerHorizontal="true"
+        >
+        <ImageView android:id="@+id/line_left"
+            android:layout_width="110dip"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dip"
+            android:layout_gravity="center_horizontal"
+            android:src="@mipmap/line"/>
+        <TextView
+            android:id="@+id/quick_text"
+            android:layout_width="80dip"
+            android:layout_height="@dimen/login_editText_height"
+            android:layout_centerHorizontal="true"
+            android:layout_right="@id/line_left"
+            android:gravity="center|top"
+            android:layout_alignParentTop="true"
+            android:text="快速登录"
+            android:textColor="@android:color/white"
+            android:textSize="14dip"/>
+        <ImageView android:id="@+id/line_right"
+            android:layout_width="110dip"
+            android:layout_marginTop="5dip"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/quick_text"
+            android:src="@mipmap/line"/>
+    </RelativeLayout>
 
 </RelativeLayout>
