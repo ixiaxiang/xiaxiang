@@ -53,7 +53,7 @@ public class IndexActivity extends Activity {
         mStart.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(IndexActivity.this, MainActivity.class);
+                Intent intent = new Intent(IndexActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
             }

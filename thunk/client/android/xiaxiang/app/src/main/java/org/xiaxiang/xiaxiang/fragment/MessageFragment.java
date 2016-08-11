@@ -20,6 +20,9 @@ import org.xiaxiang.xiaxiang.utils.TimeString;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -52,7 +55,9 @@ public class MessageFragment extends Fragment {
     private void initMessageList() {
         messageList = (ListView)view.findViewById(R.id.message_list);
         chatMessageList = getData();
+
         sortTimeStamp();
+
         messageAdapter = new MessageAdapter(getActivity());
         messageList.setAdapter(messageAdapter);
     }
@@ -69,7 +74,9 @@ public class MessageFragment extends Fragment {
     private List<ChatMessage> getData() {
         List<ChatMessage> list = new ArrayList<>();
 
+
         // 先填入假数据，后续对接
+
         ChatMessage m1 = new ChatMessage();
         m1.setUserID("000001");
         m1.setNickname("晚饭没吃饱");
@@ -159,7 +166,6 @@ public class MessageFragment extends Fragment {
         }
     }
 
-
     // test button 正式接入后会删除
     private void test1button() {
         testButton1 = (Button)view.findViewById(R.id.test_bt1);
@@ -173,7 +179,6 @@ public class MessageFragment extends Fragment {
                 m.setTimeStamp(System.currentTimeMillis());
                 m.setUnreadCount(23);
                 chatMessageList.add(0, m);
-                sortTimeStamp();
                 messageAdapter.notifyDataSetChanged();
             }
         });
@@ -202,5 +207,4 @@ public class MessageFragment extends Fragment {
         });
     }
     // 测试模块
-
 }

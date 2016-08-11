@@ -91,7 +91,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/interline2"
         android:layout_marginTop="10dp"
-        android:background="@drawable/selector_login_button"
+        android:background="@drawable/login_button"
         android:text="@string/login_text"
         android:textColor="@android:color/white"
         android:textSize="18dip"/>
