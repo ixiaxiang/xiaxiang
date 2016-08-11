@@ -218,4 +218,12 @@
             <enum name="middle" value="-3" />
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="ImageText">
+        <attr name="tab_image" format="reference" />
+        <attr name="tab_text" format="string" />
+        <attr name="tab_tip" format="boolean" />
+        <attr name="tab_text_color" format="color" />
+    </declare-styleable>
+
 </resources>

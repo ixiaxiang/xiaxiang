@@ -55,11 +55,11 @@ public class MessageBean {
 	public int getSexDrawableId() {
 		if (MessageSex == 0)
 		{
-			return R.mipmap.woman;
+			return 0;//R.mipmap.woman;
 		}
 		else
 		{
-			return R.mipmap.man;
+			return 0;//R.mipmap.man;
 		}
 	}
 	@Override

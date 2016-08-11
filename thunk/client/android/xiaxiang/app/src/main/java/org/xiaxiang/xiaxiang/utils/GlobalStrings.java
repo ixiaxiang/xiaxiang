@@ -22,4 +22,18 @@ public class GlobalStrings {
             R.mipmap.menu_theme,
             R.mipmap.menu_share
     };
+
+    public static final int[] BottomPanelSelectedImageID = {
+            R.mipmap.message_selected,
+            R.mipmap.contacts_selected,
+            R.mipmap.play_selected,
+            R.mipmap.play_selected
+    };
+
+    public static final int[] BottomPanelUnselectedImageID = {
+            R.mipmap.message_unselected,
+            R.mipmap.contacts_unselected,
+            R.mipmap.play_unselected,
+            R.mipmap.play_unselected
+    };
 }

@@ -4,9 +4,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <ListView
+        android:id="@+id/message_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:divider="@drawable/bottom_divider" >
+    </ListView>
+
+    <!--测试按钮，之后删除-->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="消息界面"
-        android:textColor="@color/black"/>
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/test_bt1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="添加" />
+        <Button
+            android:id="@+id/test_bt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="更新"/>
+
+    </LinearLayout>
 </LinearLayout>

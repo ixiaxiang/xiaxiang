@@ -1,12 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="5dp" >
+    android:layout_height="60dp"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp">
 
+    <org.xiaxiang.xiaxiang.ui.ImageText
+        android:id="@+id/button_messgae"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_weight="1"
+        app:tab_image="@mipmap/message_unselected"
+        app:tab_text="消息"
+        app:tab_text_color="@color/grey" >
+    </org.xiaxiang.xiaxiang.ui.ImageText>
+
+    <org.xiaxiang.xiaxiang.ui.ImageText
+        android:id="@+id/button_contacts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_weight="1"
+        app:tab_image="@mipmap/contacts_unselected"
+        app:tab_text="校友录"
+        app:tab_text_color="@color/grey" >
+    </org.xiaxiang.xiaxiang.ui.ImageText>
+
+    <org.xiaxiang.xiaxiang.ui.ImageText
+        android:id="@+id/button_friends"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_weight="1"
+        app:tab_image="@mipmap/play_unselected"
+        app:tab_text="杂货铺"
+        app:tab_text_color="@color/grey" >
+    </org.xiaxiang.xiaxiang.ui.ImageText>
+
+    <org.xiaxiang.xiaxiang.ui.ImageText
+        android:id="@+id/button_play"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_weight="1"
+        app:tab_image="@mipmap/play_unselected"
+        app:tab_text="活动"
+        app:tab_text_color="@color/grey" >
+    </org.xiaxiang.xiaxiang.ui.ImageText>
+
+    <!--
     <Button
-        android:id="@+id/button_chat"
+        android:id="@+id/button_messgae"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
@@ -34,7 +81,7 @@
         android:layout_gravity="bottom"
         android:layout_weight="1"
         android:background="@android:color/transparent"
-        android:drawableTop="@mipmap/news_unselected"
+        android:drawableTop="@mipmap/play_unselected"
         android:drawablePadding="5dp"
         android:text="杂货铺"
         android:textColor="@color/bottom_panel_green" />
@@ -45,9 +92,10 @@
         android:layout_gravity="bottom"
         android:layout_weight="1"
         android:background="@android:color/transparent"
-        android:drawableTop="@mipmap/setting_unselected"
+        android:drawableTop="@mipmap/play_unselected"
         android:drawablePadding="5dp"
         android:text="活动"
         android:textColor="@color/bottom_panel_green" />
+    -->
 
 </LinearLayout>

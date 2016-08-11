@@ -9,12 +9,14 @@
 
 	<color name="blue">#3A5FCD</color>
 	<color name="black">#000000</color>
+	<color name="grey">#c2c2c2</color>
 
 	<color name="line">#DDDDDD</color>
 	<color name="button_green_pressed">#2ad670</color>
 	<color name="button_green_normal">#6adab4</color>
 
 	<color name="bottom_panel_green">#36bc7d</color>
+
 	<color name="color_hei_8">#00000000</color>
 	<drawable name="trans">@color/color_hei_8</drawable>
 </resources>

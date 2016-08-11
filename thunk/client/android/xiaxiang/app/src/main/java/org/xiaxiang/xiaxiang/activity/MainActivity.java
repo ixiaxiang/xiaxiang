@@ -2,6 +2,8 @@ package org.xiaxiang.xiaxiang.activity;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.res.Resources;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -16,6 +18,7 @@ import org.xiaxiang.xiaxiang.fragment.ContactsFragment;
 import org.xiaxiang.xiaxiang.fragment.FriendFragment;
 import org.xiaxiang.xiaxiang.fragment.MessageFragment;
 import org.xiaxiang.xiaxiang.fragment.PlayFragment;
+import org.xiaxiang.xiaxiang.ui.ImageText;
 import org.xiaxiang.xiaxiang.utils.GlobalStrings;
 
 import java.util.ArrayList;
@@ -33,10 +36,10 @@ public class MainActivity extends BaseActivity {
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
 
-    private Button chatButton;
-    private Button contactsButton;
-    private Button friendButton;
-    private Button playButton;
+    private ImageText messageButton;
+    private ImageText contactsButton;
+    private ImageText friendButton;
+    private ImageText playButton;
 
     private DrawerLayout drawerLayout;
     private ListView listView;
@@ -52,40 +55,7 @@ public class MainActivity extends BaseActivity {
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.fragment_content, messageFragment);
         fragmentTransaction.commit();
-    }
-
-    class ButtonClickListener implements View.OnClickListener {
-        int index;
-        public ButtonClickListener(int index) {
-            this.index = index;
-        }
-
-        @Override
-        public void onClick(View view) {
-            fragmentTransaction = fragmentManager.beginTransaction();
-            switch ( view.getId() ) {
-                case R.id.button_chat:
-                    fragmentTransaction.replace(R.id.fragment_content, messageFragment);
-                    break;
-                case R.id.button_contacts:
-                    fragmentTransaction.replace(R.id.fragment_content, contactsFragment);
-                    break;
-                case R.id.button_friends:
-                    fragmentTransaction.replace(R.id.fragment_content, friendFragment);
-                    break;
-                case R.id.button_play:
-                    fragmentTransaction.replace(R.id.fragment_content, playFragment);
-                    break;
-                default:
-                    break;
-            }
-
-            if ( tabIndex != index ) {
-                fragmentTransaction.commit();
-            }
-
-            tabIndex = index;
-        }
+        setTabSelectedImage(0);
     }
 
     private void initUI() {
@@ -104,12 +74,12 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initBottomButton() {
-        chatButton = (Button)findViewById(R.id.button_chat);
-        contactsButton = (Button)findViewById(R.id.button_contacts);
-        friendButton = (Button)findViewById(R.id.button_friends);
-        playButton = (Button)findViewById(R.id.button_play);
+        messageButton = (ImageText) findViewById(R.id.button_messgae);
+        contactsButton = (ImageText) findViewById(R.id.button_contacts);
+        friendButton = (ImageText) findViewById(R.id.button_friends);
+        playButton = (ImageText) findViewById(R.id.button_play);
 
-        chatButton.setOnClickListener(new ButtonClickListener(0));
+        messageButton.setOnClickListener(new ButtonClickListener(0));
         contactsButton.setOnClickListener(new ButtonClickListener(1));
         friendButton.setOnClickListener(new ButtonClickListener(2));
         playButton.setOnClickListener(new ButtonClickListener(3));
@@ -170,4 +140,88 @@ public class MainActivity extends BaseActivity {
         setSupportActionBar(toolbar);
         toolbar.setTitle(R.string.app_name);
     }
+
+
+    class ButtonClickListener implements View.OnClickListener {
+        int index;
+        public ButtonClickListener(int index) {
+            this.index = index;
+        }
+
+        @Override
+        public void onClick(View view) {
+            fragmentTransaction = fragmentManager.beginTransaction();
+            switch ( view.getId() ) {
+                case R.id.button_messgae:
+                    fragmentTransaction.replace(R.id.fragment_content, messageFragment);
+                    break;
+                case R.id.button_contacts:
+                    fragmentTransaction.replace(R.id.fragment_content, contactsFragment);
+                    break;
+                case R.id.button_friends:
+                    fragmentTransaction.replace(R.id.fragment_content, friendFragment);
+                    break;
+                case R.id.button_play:
+                    fragmentTransaction.replace(R.id.fragment_content, playFragment);
+                    break;
+                default:
+                    break;
+            }
+
+            if ( tabIndex != index ) {
+                setTabSelectedImage(index);
+                setTabUnselectedImage(tabIndex);
+                fragmentTransaction.commit();
+            }
+
+            tabIndex = index;
+        }
+    }
+
+    public void setTabSelectedImage(int index) {
+        switch (index) {
+            case 0:
+                messageButton.setTabImage(ResourcesCompat.getDrawable(getResources(), GlobalStrings.BottomPanelSelectedImageID[0], null));
+                messageButton.setTabTextColor(R.color.bottom_panel_green);
+                break;
+            case 1:
+                contactsButton.setTabImage(ResourcesCompat.getDrawable(getResources(), GlobalStrings.BottomPanelSelectedImageID[1], null));
+                contactsButton.setTabTextColor(R.color.bottom_panel_green);
+                break;
+            case 2:
+                friendButton.setTabImage(ResourcesCompat.getDrawable(getResources(), GlobalStrings.BottomPanelSelectedImageID[2], null));
+                friendButton.setTabTextColor(R.color.bottom_panel_green);
+                break;
+            case 3:
+                playButton.setTabImage(ResourcesCompat.getDrawable(getResources(), GlobalStrings.BottomPanelSelectedImageID[3], null));
+                playButton.setTabTextColor(R.color.bottom_panel_green);
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void setTabUnselectedImage(int index) {
+        switch (index) {
+            case 0:
+                messageButton.setTabImage(ResourcesCompat.getDrawable(getResources(), GlobalStrings.BottomPanelUnselectedImageID[0], null));
+                messageButton.setTabTextColor(R.color.grey);
+                break;
+            case 1:
+                contactsButton.setTabImage(ResourcesCompat.getDrawable(getResources(), GlobalStrings.BottomPanelUnselectedImageID[1], null));
+                contactsButton.setTabTextColor(R.color.grey);
+                break;
+            case 2:
+                friendButton.setTabImage(ResourcesCompat.getDrawable(getResources(), GlobalStrings.BottomPanelUnselectedImageID[2], null));
+                friendButton.setTabTextColor(R.color.grey);
+                break;
+            case 3:
+                playButton.setTabImage(ResourcesCompat.getDrawable(getResources(), GlobalStrings.BottomPanelUnselectedImageID[3], null));
+                playButton.setTabTextColor(R.color.grey);
+                break;
+            default:
+                break;
+        }
+    }
+
 }

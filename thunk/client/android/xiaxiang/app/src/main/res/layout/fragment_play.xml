@@ -1,12 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!--
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="活动界面"
         android:textColor="@color/black"/>
+    -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
 
+        <org.xiaxiang.xiaxiang.ui.ImageText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:tab_image="@mipmap/message_unselected"
+            app:tab_text="消息" >
+        </org.xiaxiang.xiaxiang.ui.ImageText>
+
+        <org.xiaxiang.xiaxiang.ui.ImageText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:tab_image="@mipmap/contacts_unselected"
+            app:tab_text="校友录" >
+        </org.xiaxiang.xiaxiang.ui.ImageText>
+
+        <org.xiaxiang.xiaxiang.ui.ImageText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:tab_image="@mipmap/play_unselected"
+            app:tab_text="杂货铺" >
+        </org.xiaxiang.xiaxiang.ui.ImageText>
+
+    </LinearLayout>
 </LinearLayout>
