@@ -3,6 +3,7 @@ package org.xiaxiang.xiaxiang.fragment;
 import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +23,6 @@ import java.util.Collections;
 import java.util.Comparator;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -49,16 +49,36 @@ public class MessageFragment extends Fragment {
         test1button();   //测试按钮
         test2button();
 
+        Log.d("debug:", "create view");
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        //Log.d("debug:", "resume");
+
+        refreshList();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.d("debug:", "stop");
     }
 
     private void initMessageList() {
         messageList = (ListView)view.findViewById(R.id.message_list);
-        chatMessageList = getData();
+
+        if ( chatMessageList == null ) {
+            chatMessageList = getData();
+        }
+
+        if ( messageAdapter == null ) {
+            messageAdapter = new MessageAdapter(getActivity());
+        }
 
         sortTimeStamp();
-
-        messageAdapter = new MessageAdapter(getActivity());
         messageList.setAdapter(messageAdapter);
     }
 
@@ -73,7 +93,6 @@ public class MessageFragment extends Fragment {
 
     private List<ChatMessage> getData() {
         List<ChatMessage> list = new ArrayList<>();
-
 
         // 先填入假数据，后续对接
 
@@ -107,6 +126,11 @@ public class MessageFragment extends Fragment {
         };
 
         Collections.sort(chatMessageList, itemComparator);
+    }
+
+    public void refreshList() {
+        sortTimeStamp();
+        messageAdapter.notifyDataSetChanged();
     }
 
     // 静态类UI缓存
@@ -177,7 +201,7 @@ public class MessageFragment extends Fragment {
                 m.setMessage("测试");
                 m.setTime(TimeString.getCurrentHourMinute());
                 m.setTimeStamp(System.currentTimeMillis());
-                m.setUnreadCount(23);
+                m.setUnreadCount(1);
                 chatMessageList.add(0, m);
                 messageAdapter.notifyDataSetChanged();
             }

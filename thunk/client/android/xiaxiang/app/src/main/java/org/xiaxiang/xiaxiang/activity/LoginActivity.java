@@ -39,7 +39,7 @@ public class LoginActivity extends ParentActivity implements OnClickListener, Co
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        setTranslucent(this);
         initLoginButton();
     }
 

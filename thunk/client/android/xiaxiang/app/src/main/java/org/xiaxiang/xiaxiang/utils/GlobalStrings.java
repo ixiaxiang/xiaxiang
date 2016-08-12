@@ -1,10 +1,15 @@
 package org.xiaxiang.xiaxiang.utils;
 
+import android.content.res.Resources;
+import android.graphics.Color;
+import android.support.v4.content.res.ResourcesCompat;
+
 import org.xiaxiang.xiaxiang.R;
 /**
  * Created by gz on 2016/8/5.
  */
 public class GlobalStrings {
+
     public static final String[] DrawerLayoutMenuListTitle = {
             "主页",
             "我的招募",

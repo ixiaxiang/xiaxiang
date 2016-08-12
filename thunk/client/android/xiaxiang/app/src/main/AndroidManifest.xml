@@ -5,15 +5,13 @@
     android:versionName="1.0">
 
     <uses-sdk
-        android:minSdkVersion="19"
-        android:targetSdkVersion="19" />
+        android:minSdkVersion="11"
+        android:targetSdkVersion="23" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
-
 
     <application
         android:name=".data.GlobalData"
@@ -35,9 +33,11 @@
         <activity
             android:name=".activity.LoginActivity"
             android:launchMode="singleTask">
-
         </activity>
-        <activity android:name=".activity.MainActivity"></activity>
+        <activity
+            android:name=".activity.MainActivity"
+            android:launchMode="singleTask">
+        </activity>
         <activity android:name=".activity.ChatActivity"></activity>
     </application>
 

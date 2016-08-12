@@ -48,6 +48,7 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initUI();
+        setColorForDrawerLayout(this, drawerLayout, ResourcesCompat.getColor(getResources(), R.color.blue, null));
 
         fragmentManager = getFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();

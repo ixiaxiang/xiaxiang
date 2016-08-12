@@ -8,12 +8,13 @@
         android:id="@+id/drawer_menu_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
+        android:fitsSystemWindows="false"
         android:background="@android:color/transparent" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:fitsSystemWindows="false"
             android:orientation="vertical" >
 
             <android.support.v7.widget.Toolbar
@@ -21,6 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="@color/blue"
+                android:fitsSystemWindows="false"
                 android:minHeight="?attr/actionBarSize" />
 
             <LinearLayout

@@ -1,11 +1,9 @@
 package org.xiaxiang.xiaxiang.ui;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.support.v4.content.res.ResourcesCompat;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
@@ -45,16 +43,6 @@ public class ImageText extends RelativeLayout {
         init();
     }
 
-    /*
-    public ImageText(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        LayoutInflater.from(context).inflate(R.layout.bottom_panel_item, this);
-
-        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.ImageText, defStyle, 0);
-
-    }
-    */
-
     private void init() {
         tabImage = (ImageView)findViewById(R.id.tab_image);
         tabText = (TextView)findViewById(R.id.tab_text);
@@ -76,9 +64,9 @@ public class ImageText extends RelativeLayout {
 
     public void setTabTip(boolean enable) {
         if ( enable ) {
-            tabTip.setVisibility(1);
+            tabTip.setVisibility(VISIBLE);
         } else {
-            tabTip.setVisibility(0);
+            tabTip.setVisibility(INVISIBLE);
         }
     }
 
