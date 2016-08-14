@@ -1,9 +1,24 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity" >
 
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_multi"
         android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/action_settings"/>
+        android:title="@string/action_multi"
+        android:icon="@mipmap/popup_item_multi"/>
+
+    <item
+        android:id="@+id/action_add"
+        android:orderInCategory="90"
+        android:title="@string/action_add"
+        android:icon="@mipmap/popup_item_add" />
+
+    <item
+        android:id="@+id/action_scan"
+        android:orderInCategory="80"
+        android:title="@string/action_scan"
+        android:icon="@mipmap/popup_item_scan" />
 
 </menu>

@@ -1,4 +1,4 @@
-package org.xiaxiang.xiaxiang.base;
+package org.xiaxiang.xiaxiang.data;
 
 import java.net.URL;
 import java.util.ArrayList;

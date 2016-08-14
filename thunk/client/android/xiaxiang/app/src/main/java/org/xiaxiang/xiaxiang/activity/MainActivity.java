@@ -2,11 +2,18 @@ package org.xiaxiang.xiaxiang.activity;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.os.Bundle;
+import android.support.v7.view.menu.MenuPopupHelper;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
@@ -19,12 +26,17 @@ import org.xiaxiang.xiaxiang.fragment.PlayFragment;
 import org.xiaxiang.xiaxiang.ui.ImageText;
 import org.xiaxiang.xiaxiang.utils.GlobalStrings;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.IllegalFormatCodePointException;
 import java.util.List;
 import java.util.Map;
+import java.util.zip.Inflater;
 
 public class MainActivity extends BaseActivity {
+
+    private final String TAG = "MainActivity";
 
     private int tabIndex = 0;
     private MessageFragment messageFragment;
@@ -42,6 +54,7 @@ public class MainActivity extends BaseActivity {
     private DrawerLayout drawerLayout;
     private ListView listView;
     private Toolbar toolbar;
+    private ImageView popupButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +69,15 @@ public class MainActivity extends BaseActivity {
         fragmentTransaction.commit();
 
         setTabSelectedImage(0);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if ( drawerLayout.isDrawerOpen(findViewById(R.id.left_menu_layout))) {
+            drawerLayout.closeDrawers();
+        } else {
+            super.onBackPressed();
+        }
     }
 
     private void initUI() {
@@ -137,8 +159,53 @@ public class MainActivity extends BaseActivity {
     // 初始化工具栏
     private void initToolbar() {
         toolbar = (Toolbar)findViewById(R.id.main_toolbar);
+        popupButton = (ImageView)findViewById(R.id.main_popupmenu);
         setSupportActionBar(toolbar);
         toolbar.setTitle(R.string.app_name);
+        popupButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "popup menu");
+                showMainPopupMenu(MainActivity.this, view);
+            }
+        });
+    }
+
+    private void showMainPopupMenu(Context context, View view) {
+        PopupMenu popupMenu = new PopupMenu(context, view);
+        popupMenu.inflate(R.menu.main);
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.action_add:
+
+                        break;
+                    case R.id.action_multi:
+
+                        break;
+                    case R.id.action_scan:
+
+                        break;
+                    default:
+                        break;
+                }
+                return true;
+            }
+        });
+
+        try {
+            Field field = popupMenu.getClass().getDeclaredField("mPopup");
+            field.setAccessible(true);
+            MenuPopupHelper mHelp = (MenuPopupHelper)field.get(popupMenu);
+            mHelp.setForceShowIcon(true);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+
+        popupMenu.show();
     }
 
 

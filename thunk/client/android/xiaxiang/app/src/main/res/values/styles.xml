@@ -5,13 +5,19 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowContentOverlay">@null</item>
+        <item name="android:popupBackground">@mipmap/popup_menu_bg</item>
 
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/colorBackground</item>
-
+    </style>
+    
+    <!-- Toolbar popup menu theme -->
+    <style name="ToolPopupTheme" parent="Theme.AppCompat">
+        <item name="overlapAnchor">false</item>
+        <item name="android:actionOverflowButtonStyle">@style/Widget.AppCompat.PopupMenu.Overflow</item>
     </style>
 
 </resources>

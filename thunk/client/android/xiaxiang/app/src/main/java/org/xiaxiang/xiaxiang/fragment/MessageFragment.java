@@ -1,8 +1,6 @@
 package org.xiaxiang.xiaxiang.fragment;
 
-import android.app.Fragment;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -23,8 +21,7 @@ import org.jivesoftware.smack.filter.PacketFilter;
 import org.jivesoftware.smack.packet.Message;
 import org.jivesoftware.smack.packet.Packet;
 import org.xiaxiang.xiaxiang.R;
-import org.xiaxiang.xiaxiang.activity.ParentActivity;
-import org.xiaxiang.xiaxiang.base.ChatMessage;
+import org.xiaxiang.xiaxiang.data.ChatMessage;
 import org.xiaxiang.xiaxiang.common.Util;
 import org.xiaxiang.xiaxiang.utils.TimeString;
 
@@ -251,14 +248,18 @@ public class MessageFragment extends ParentFragment implements PacketListener {
         });
     }
 
-    private Handler mHandler = new Handler()
-    {
+    private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(android.os.Message msg) {
             super.handleMessage(msg);
             Message message = (Message) msg.obj;
             String user = Util.extractUserFromChat(message.getFrom());
             String body = message.getBody();
+
+            if ( body == null ) {
+                return;
+            }
+
             boolean bFounded = false;
 
             for(Iterator i = chatMessageList.iterator(); i.hasNext();  ){
@@ -294,7 +295,8 @@ public class MessageFragment extends ParentFragment implements PacketListener {
                 newChatMsg.AddMessageToList(body);
                 chatMessageList.add(newChatMsg);
             }
-            messageAdapter.notifyDataSetChanged();
+
+            refreshList();
         }
     };
 
