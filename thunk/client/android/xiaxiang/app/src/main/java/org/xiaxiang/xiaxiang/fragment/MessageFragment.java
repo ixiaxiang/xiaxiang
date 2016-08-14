@@ -2,7 +2,9 @@ package org.xiaxiang.xiaxiang.fragment;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,8 +16,16 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import org.jivesoftware.smack.PacketListener;
+import org.jivesoftware.smack.SmackException;
+import org.jivesoftware.smack.filter.MessageTypeFilter;
+import org.jivesoftware.smack.filter.PacketFilter;
+import org.jivesoftware.smack.packet.Message;
+import org.jivesoftware.smack.packet.Packet;
 import org.xiaxiang.xiaxiang.R;
+import org.xiaxiang.xiaxiang.activity.ParentActivity;
 import org.xiaxiang.xiaxiang.base.ChatMessage;
+import org.xiaxiang.xiaxiang.common.Util;
 import org.xiaxiang.xiaxiang.utils.TimeString;
 
 import java.util.ArrayList;
@@ -23,17 +33,19 @@ import java.util.Collections;
 import java.util.Comparator;
 
 
+import java.util.Iterator;
 import java.util.List;
 
 /**
  * Created by gz on 2016/8/8.
  */
-public class MessageFragment extends Fragment {
+public class MessageFragment extends ParentFragment implements PacketListener {
 
     private View view;
     private ListView messageList;
     private List<ChatMessage> chatMessageList;
     private MessageAdapter messageAdapter;
+    private PacketFilter mFilter = new MessageTypeFilter(Message.Type.chat);
 
     // 测试按钮
     private int testnum = 0;
@@ -48,6 +60,8 @@ public class MessageFragment extends Fragment {
 
         test1button();   //测试按钮
         test2button();
+
+        mXMPPConnection.addPacketListener(this, mFilter);
 
         Log.d("debug:", "create view");
         return view;
@@ -65,6 +79,12 @@ public class MessageFragment extends Fragment {
     public void onStop() {
         super.onStop();
         Log.d("debug:", "stop");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mXMPPConnection.removePacketListener(this);
     }
 
     private void initMessageList() {
@@ -230,5 +250,59 @@ public class MessageFragment extends Fragment {
             }
         });
     }
-    // 测试模块
+
+    private Handler mHandler = new Handler()
+    {
+        @Override
+        public void handleMessage(android.os.Message msg) {
+            super.handleMessage(msg);
+            Message message = (Message) msg.obj;
+            String user = Util.extractUserFromChat(message.getFrom());
+            String body = message.getBody();
+            boolean bFounded = false;
+
+            for(Iterator i = chatMessageList.iterator(); i.hasNext();  ){
+                ChatMessage chatMsg = (ChatMessage) i.next();
+
+                if (true == chatMsg.getNickname().equals(user)){
+                    bFounded = true;
+
+                    if (body.length() > 10){
+                        chatMsg.setMessage(body.substring(0, 9));
+                    }else{
+                        chatMsg.setMessage(body);
+                    }
+
+                    chatMsg.setUnreadCount(chatMsg.getUnreadCount() + 1);
+                    chatMsg.setTime(TimeString.getCurrentHourMinute());
+                    chatMsg.setTimeStamp(System.currentTimeMillis());
+                    chatMsg.AddMessageToList(body);
+                }
+            }
+
+            if (false == bFounded){
+                ChatMessage newChatMsg = new ChatMessage();
+                newChatMsg.setNickname(user);
+                if (body.length() > 10){
+                    newChatMsg.setMessage(body.substring(0, 9));
+                }else{
+                    newChatMsg.setMessage(body);
+                }
+                newChatMsg.setTime(TimeString.getCurrentHourMinute());
+                newChatMsg.setTimeStamp(System.currentTimeMillis());
+                newChatMsg.setUnreadCount(1);
+                newChatMsg.AddMessageToList(body);
+                chatMessageList.add(newChatMsg);
+            }
+            messageAdapter.notifyDataSetChanged();
+        }
+    };
+
+    @Override
+    public void processPacket(Packet packet) throws SmackException.NotConnectedException {
+        android.os.Message msg = new android.os.Message();
+        msg.obj = packet;
+
+        mHandler.sendMessage(msg);
+    }
 }

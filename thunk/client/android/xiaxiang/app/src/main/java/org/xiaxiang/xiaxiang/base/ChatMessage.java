@@ -1,6 +1,7 @@
 package org.xiaxiang.xiaxiang.base;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,7 +16,7 @@ public class ChatMessage {
     private String time;
     private Long timeStamp;
     private int unreadCount;
-    private List<String> messageList;
+    private List<String> messageList = new ArrayList();
 
     /*
     public ChatMessage(URL path, String name, String msg, String t, int count) {
@@ -77,5 +78,9 @@ public class ChatMessage {
 
     public void setUnreadCount(int count) {
         unreadCount = count;
+    }
+
+    public void AddMessageToList(String msg){
+        messageList.add(msg);
     }
 }

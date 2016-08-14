@@ -7,12 +7,13 @@ import org.jivesoftware.smack.XMPPConnection;
 public class DataWarehouse
 {
     private static GlobalData mGlobalData;
+    private static Context mContext;
     
     public static GlobalData getGlobalData(Context ctx)
     {
     	    if(mGlobalData == null)
     	        mGlobalData = (GlobalData) ctx.getApplicationContext();	
-    	    	return mGlobalData;    	    
+    	    return mGlobalData;
     }
     public static String getServiceName(Context ctx)
     {
@@ -23,9 +24,15 @@ public class DataWarehouse
 
         getGlobalData(ctx).serviceName = serviceName;
     }
+
+    public static XMPPConnection getXMPPConnection()
+    {
+        return getGlobalData(mContext).xmppConnection;
+    }
+
     public static XMPPConnection getXMPPConnection(Context ctx)
     {
-    	
+            mContext = ctx;
     	    return getGlobalData(ctx).xmppConnection;
     }
     public static void setXMPPConnection(Context ctx,XMPPConnection conn)
